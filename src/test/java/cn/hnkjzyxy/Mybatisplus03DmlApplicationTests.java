@@ -56,5 +56,11 @@ class Mybatisplus03DmlApplicationTests {
         System.out.println(userDao.updateById(u1));
         System.out.println(userDao.updateById(u2));
     }
+    @Test
+    void testSelect(){
+        QueryWrapper<User> qw = new QueryWrapper<>();
+        qw.lambda().between(User::getId,4,6);
+        System.out.println(userDao.selectList(qw));
+    }
 
 }
