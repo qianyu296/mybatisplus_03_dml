@@ -2,6 +2,7 @@ package cn.hnkjzyxy;
 
 import cn.hnkjzyxy.dao.UserDao;
 import cn.hnkjzyxy.pojo.User;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,6 +73,12 @@ class Mybatisplus03DmlApplicationTests {
         QueryWrapper<User> qw = new QueryWrapper<>();
         qw.lambda().eq(User::getName,"木木1");
         System.out.println(userDao.selectOne(qw));
+    }
+    @Test
+    void testBetween(){
+        LambdaQueryWrapper<User> lqw = new LambdaQueryWrapper<>();
+        lqw.between(User::getId, 1, 4);
+        System.out.println(userDao.selectList(lqw));
     }
 
 }
