@@ -67,5 +67,11 @@ class Mybatisplus03DmlApplicationTests {
         QueryWrapper<User> qw = new QueryWrapper<>();
         System.out.println(userDao.selectById(3));
     }
+    @Test
+    void testEquals(){
+        QueryWrapper<User> qw = new QueryWrapper<>();
+        qw.lambda().eq(User::getName,"木木1");
+        System.out.println(userDao.selectOne(qw));
+    }
 
 }
