@@ -77,7 +77,7 @@ class Mybatisplus03DmlApplicationTests {
     @Test
     void testBetween(){
         QueryWrapper<User> lqw = new QueryWrapper<>();
-        lqw.between("id",1,4)
+        lqw.between("id",1,4);
         System.out.println(userDao.selectList(lqw));
     }
 
