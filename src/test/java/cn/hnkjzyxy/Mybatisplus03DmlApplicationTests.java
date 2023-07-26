@@ -77,7 +77,7 @@ class Mybatisplus03DmlApplicationTests {
     @Test
     void testBetween(){
         LambdaQueryWrapper<User> lqw = new LambdaQueryWrapper<>();
-        lqw.between(User::getId, 1, 3);
+        lqw.between(User::getId, 1, 4);
         System.out.println(userDao.selectList(lqw));
     }
 
